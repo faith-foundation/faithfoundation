@@ -1,0 +1,27 @@
+{% block content %}
+
+<h1>Events</h1>
+
+<br><br>
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <div>
+        <p {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </p>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<div>
+<form action = "" method = "post">
+	{% csrf_token %}
+	{{form.as_p }}
+	<input type="submit" value=Submit>
+</form>
+</div>
+
+
+{% endblock content %}
