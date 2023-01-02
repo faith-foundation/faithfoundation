@@ -1,0 +1,56 @@
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="register-div">
+    <h2 style="text-align: center;">Register</h2>
+
+    {% if form.errors %}
+            <p class="alert-message-register">There was an error with your form!</p>
+    {% endif %}
+            
+
+    <div style="border: 1px solid transparent; position:absolute; left:30%; top:17%;">
+    <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <label for="username">Create a Username:</label>
+            <br>
+            {{ form.username }}
+            <br>
+            <label for="first_name">First Name:</label>
+            <br>
+            {{ form.first_name }}
+            <br>
+            <label for="last_name">Last Name:</label>
+            <br>
+            {{ form.last_name }}
+            <br>
+            <label for="email">Email:</label>
+            <br>
+            {{ form.email }}
+            <br>
+            <label for="email">Mobile Number:</label>
+            <br>
+            {{ form.mobile_number }}
+            <br>
+            <label for="email">Date of birth:</label>
+            <br>
+            {{ form.date_of_birth }}
+            <br>
+            <label for="password1">Create a Password:</label>
+            <br>
+            {{ form.password1 }}
+            <br>
+            <label for="password2">Re-enter your Password:</label>
+            <br>
+            {{ form.password2 }}
+            
+            <br><br>
+        <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+        <a class="back-to-login" style="text-decoration: none;" href="{% url 'login' %}">&#8678;Back to Login</a>
+    </div>
+</div>
+
+
+{% endblock content %}
