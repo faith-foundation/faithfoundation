@@ -1,35 +1,50 @@
+{% extends "base.html" %}
 {% block content %}
-<div class="login-div">
-    <h2 style="text-align: center;">Login</h2>
-    <br><br>
-    <form action="" method="post">
-        {% csrf_token %}
-        <form>
-            
-            <!-- Alert message is user login authentication failed -->
-            
-            {% if messages %}
-                {% for message in messages %}
-                    <div style="color: red;">{{ message }}</div>     
-                {% endfor %}
-            {% endif %}
 
+<style>
+    .cardstyle{
+    border: 1px solid lightgrey;
+    height:300px;
+    width:500px;
+    padding:80px;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 91px, #47d3ff 91px, #47d3ff 182px);
+    background-color: #474bff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius:5px;
+    }
+</style>
+
+<h2 style="text-align: center;">Please Sign in</h2>
+
+<br><br>
+
+    <!-- Alert message is user login authentication failed -->
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger container" style="border:1px solid transparent; width: 500px; text-align:center;" role="alert">
+        {{ message }}
+    </div>
+
+    {% endfor %}
+    {% endif %}
+
+<div class="container cardstyle">
+<form action="" method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+            <input type="text" class="form-control login-input" name="username" aria-describedby="emailHelp" placeholder="Username">
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <input type="password" class="form-control register-input" name="password" placeholder="Password">
+    </div>
+    <br>
+
+    <input type="submit" value="Sign in" class="btn btn-success" style="float:right;">
+</form>
 </div>
-            <br><br>
-            <div class="form-group">
-
-              <!-- <label for="Exampleusername">Username</label> -->
-              <input type="text" class="form-control login-input" name="username" aria-describedby="emailHelp" placeholder="Username">
-            </div>
-            <br>
-            <div class="form-group">
-              <!-- <label for="Examplepassword">Password</label> -->
-              <input type="password" class="form-control register-input" name="password" placeholder="Password">
-            </div>
-        <input type="submit" value="Submit" class="link-login">
-    </form>
-    <a class="link-register" style="text-decoration: none;" href="{% url 'register' %}">Register</a>
-</div>
-
 
 {% endblock content %}

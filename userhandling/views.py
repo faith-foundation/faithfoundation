@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import user_passes_test
 
 
 # Create your views here.
+
 @user_passes_test(lambda user: not user.username, login_url='home', redirect_field_name=None)
 def login_user(request):
     if request.method == "POST":

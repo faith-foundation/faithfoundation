@@ -6,6 +6,15 @@ from .forms import Event
 def home(request):
     return render(request, 'index.html')
 
+def photos(request):
+    return render(request, 'photos.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
 def event_form(request):
     context = {}
     form = Event(request.POST or None, request.FILES or None)
