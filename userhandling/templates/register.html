@@ -1,56 +1,118 @@
-
+{% extends 'base.html' %}
 {% block content %}
-{% load crispy_forms_tags %}
 
-<div class="register-div">
+<style>
+    .registerpage{
+    border: 1px solid black;
+    width: 500px;
+    padding: 50px;
+    }
+
+    label{
+    float: left;
+    }
+
+    input{
+    float: right;
+    width: 200px;
+    }
+
+    select{
+    float: right;
+    }
+
+    #id_address{
+    resize: none;
+    height: 70px;
+    width: 200px;
+    float:right;
+    }
+
+    #id_gender, #id_language_of_choice{
+    width: 200px;
+    }
+
+</style>
+
     <h2 style="text-align: center;">Register</h2>
 
     {% if form.errors %}
-            <p class="alert-message-register">There was an error with your form!</p>
+            <p class="alert alert-danger container">There was an error with your form!</p>
+                <p class="alert alert-warning container">There was an error with your form!</p>
     {% endif %}
             
 
-    <div style="border: 1px solid transparent; position:absolute; left:30%; top:17%;">
+    <div class="registerpage container">
     <form action="{% url 'register' %}" method="post">
             {% csrf_token %}
-            <label for="username">Create a Username:</label>
-            <br>
-            {{ form.username }}
-            <br>
-            <label for="first_name">First Name:</label>
-            <br>
-            {{ form.first_name }}
-            <br>
-            <label for="last_name">Last Name:</label>
-            <br>
-            {{ form.last_name }}
-            <br>
-            <label for="email">Email:</label>
-            <br>
-            {{ form.email }}
-            <br>
-            <label for="email">Mobile Number:</label>
-            <br>
-            {{ form.mobile_number }}
-            <br>
-            <label for="email">Date of birth:</label>
-            <br>
-            {{ form.date_of_birth }}
-            <br>
-            <label for="password1">Create a Password:</label>
-            <br>
-            {{ form.password1 }}
-            <br>
-            <label for="password2">Re-enter your Password:</label>
-            <br>
-            {{ form.password2 }}
-            
-            <br><br>
-        <input type="submit" value="Submit" class="btn btn-primary">
-        </form>
-        <a class="back-to-login" style="text-decoration: none;" href="{% url 'login' %}">&#8678;Back to Login</a>
-    </div>
-</div>
 
+            <label>Create a Username</label>
+            {{ form.username }}
+
+            <br><br>
+
+            <label>First Name</label>
+            {{ form.first_name }}
+
+            <br><br>
+
+            <label>Last Name</label>
+            {{ form.last_name }}
+
+            <br><br>
+
+            <label>Date of birth</label>
+            {{ form.date_of_birth }}
+
+            <br><br>
+
+            <label>Gender</label>
+            {{ form.gender }}
+
+            <br><br>
+
+            <label>Language of Choice</label>
+            {{ form.language_of_choice }}
+
+            <br><br>
+
+            <label>Address</label>
+            {{ form.address }}
+
+            <br><br><br><br>
+
+            <label >Email</label>
+            {{ form.email }}
+
+            <br><br>
+
+            <label >Mobile Number</label>
+            {{ form.mobile_number }}
+
+            <br><br>
+
+            <label>Create a Password</label>
+            {{ form.password1 }}
+
+            <br><br>
+
+            <label>Re-enter your Password</label>
+            {{ form.password2 }}
+
+            <br><br>
+        <input type="submit" value="Sign up" class="btn btn-primary">
+        </form>
+    </div>
+
+<script>
+    document.getElementById("id_username").setAttribute("placeholder", "user@123");
+    document.getElementById("id_first_name").setAttribute("placeholder", "Jon");
+    document.getElementById("id_last_name").setAttribute("placeholder", "Doe");
+    document.getElementById("id_address").setAttribute("placeholder", "Street Address");
+    document.getElementById("id_email").setAttribute("placeholder", "Jon.Doe@email.com");
+    document.getElementById("id_mobile_number").setAttribute("placeholder", "818-111-8181");
+    document.getElementById("id_password1").setAttribute("placeholder", "Password");
+    document.getElementById("id_password2").setAttribute("placeholder", "Re-Enter Password");
+</script>
 
 {% endblock content %}

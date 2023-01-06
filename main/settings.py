@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'faithfoundation',
-        'USER': 'faithfoundationt',
-        'PASSWORD': '_G.B49s8AmkMps.',
-        'HOST': 'db4free.net',   # Or an IP Address that your DB is hosted on
+        'NAME': 'test_db',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }

@@ -1,6 +1,5 @@
-
 {% block content %}
-<div class="container">
+<div class="container" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; margin-top:15px;">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
       <a href="{% url 'home' %}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         <img class="bi me-2" width="40" height="32" href aria-label="Bootstrap" src="https://scontent.fpnq2-1.fna.fbcdn.net/v/t39.30808-1/307843684_460708726086017_2128472403665626846_n.jpg?stp=c17.0.40.40a_cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=c6021c&_nc_ohc=qSNH-x4GTKUAX8fGM0S&_nc_ht=scontent.fpnq2-1.fna&oh=00_AfAqaI5wO9EJY8ohw91prRJaLku0HzhNA4uIq1DDC-ivHg&oe=63B99E8C">
@@ -8,7 +7,7 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="{% url 'home' %}" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="{% url 'events' %}" class="nav-link px-2 link-dark">Events</a></li>
+        <li><a href="{% url 'event-view' %}" class="nav-link px-2 link-dark">Events</a></li>
         <li><a href="{% url 'photos' %}" class="nav-link px-2 link-dark">Photos</a></li>
         <li><a href="{% url 'about' %}" class="nav-link px-2 link-dark">About</a></li>
         <li><a href="{% url 'contact' %}" class="nav-link px-2 link-dark">Contact</a></li>
@@ -17,7 +16,7 @@
       <div class="col-md-3 text-end">
 
         {% if user.is_authenticated %}
-        Hello, {{ request.user.username }}!  <a class="btn btn-outline-danger me-2" href="{% url 'logout' %}"> Logout</a>    
+        Hello, {{ request.user.first_name | title }}!  <a class="btn btn-outline-danger me-2" href="{% url 'logout' %}"> Logout</a>
         {% else %}
         <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Login</a>
         <a href="{% url 'register' %}" class="btn btn-outline-success me-2">Register</a>

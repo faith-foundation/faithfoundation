@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
+
 gender_choices = [
     ('Male', 'Male'),
     ('Female', 'Female'),
@@ -19,7 +20,7 @@ class RegisterUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
     first_name = forms.CharField(max_length=50, required=True)
     last_name = forms.CharField(max_length=50, required=True)
-    date_of_birth = forms.DateField(required=True, widget=forms.SelectDateWidget())
+    date_of_birth = forms.DateField(required=True, widget=forms.SelectDateWidget(years=range(1980,2024)))
     gender = forms.CharField(widget=forms.Select(choices=gender_choices))
     mobile_number = forms.CharField(max_length=12, required=True)
     language_of_choice = forms.CharField(widget=forms.Select(choices=language_choices))

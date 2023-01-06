@@ -26,7 +26,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, ("You were Logged Out!"))
-    return redirect('home')
+    return redirect('login')
 
 @user_passes_test(lambda user: not user.username, login_url='home', redirect_field_name=None)
 def register_user(request):
@@ -38,7 +38,6 @@ def register_user(request):
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             login(request, user)
-            messages.success(request,("Registration Successful!"))
             return redirect('home')
     else:
         form = RegisterUserForm()

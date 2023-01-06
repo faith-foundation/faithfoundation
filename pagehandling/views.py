@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .forms import Event
+from .models import Event
 # Create your views here.
 
 def home(request):
@@ -15,12 +15,16 @@ def about(request):
 def contact(request):
     return render(request, 'contact.html')
 
-def event_form(request):
-    context = {}
-    form = Event(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        messages.success(request, 'Form submission successful!')        
-        form.save()
+def event_view(request):
+    event_list = Event.objects.all()
+    return render(request, 'event-view.html', {'event_list':event_list})
 
-    context['form']= form
-    return render(request, 'event_registration.html', context)
+# def event_form(request):
+#     context = {}
+#     form = Event(request.POST or None, request.FILES or None)
+#     if form.is_valid():
+#         messages.success(request, 'Form submission successful!')
+#         form.save()
+#
+#     context['form']= form
+#     return render(request, 'event_registration.html', context)
