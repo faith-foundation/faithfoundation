@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+{% block title %}Faith Foundation{% endblock %}
 {% block content %}
+
+{% for event in banner_list %}
 
         <div class="container col-xxl-8 px-4 py-5" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
           <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -7,14 +10,44 @@
               <img src="https://scontent.fpnq2-1.fna.fbcdn.net/v/t39.30808-6/309321561_460708729419350_8061883825852105870_n.jpg?stp=dst-jpg_s960x960&_nc_cat=111&ccb=1-7&_nc_sid=e3f864&_nc_ohc=uUYZKNJxAnkAX-UmXWL&_nc_ht=scontent.fpnq2-1.fna&oh=00_AfBkYusgc2eYNY-YDLAYD_rq2iJOmZeLhg9cT7xaDad-sg&oe=63B806AD" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
-              <h1 class="display-5 fw-bold lh-1 mb-3">Responsive left-aligned hero with image</h1>
-              <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+
+              <h1 class="display-5 fw-bold lh-1 mb-3">{{ event.title }}</h1>
+              <p class="lead">{{ event.description }}</p>
               <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+
                 <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
               </div>
             </div>
           </div>
         </div>
+
+{% endfor %}
+
+{% for landing in landing_event %}
+
+
+  <div class="container mt-5">
+
+        <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{ landing.notification }}</strong>
+          <h3 class="mb-0">{{ landing.title }}</h3>
+          <div class="mb-1 text-muted">{{ landing.date | date:"M d" }}</div>
+          <p class="card-text mb-auto">{{ landing.description }}</p>
+          <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+</div>
+      </div>
+    </div>
+
+
+
+{% endfor %}
+
 
 {% endblock content %}

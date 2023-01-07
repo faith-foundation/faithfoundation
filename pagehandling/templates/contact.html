@@ -1,4 +1,69 @@
 {% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
 {% block content %}
+
+<style>
+    li{
+    color: red;
+    }
+
+    .contactform{
+    border:1px solid black;
+    height: 270px;
+    padding: 20px;
+    width: 450px
+    }
+
+    label{
+    float: left;
+    }
+
+    input{
+    float: right;
+    }
+
+    #id_message{
+        float: right;
+        resize: none;
+        height: 70px;
+        width: 250px;
+        }
+</style>
+
 <h1 style="text-align:center;">Contact</h1>
+
+{% if messages %}
+<ul class="messages container">
+    {% for message in messages %}
+    <div class="alert alert-success container" style="height: 55px;" role="alert">
+        <p {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </p>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="container">
+
+<div class="container contactform" id="#">
+<form action = "" method = "post">
+	{% csrf_token %}
+    <label>Subject</label>
+	{{ form.subject }}
+
+    <br><br>
+
+    <label>Mobile number</label>
+	{{ form.mobile_number }}
+
+    <br><br>
+
+    <label>Message</label>
+	{{ form.message }}
+
+    <br><br><br><br>
+
+	<input  class="btn btn-primary" type="submit" value=Submit>
+</form>
+    </div>
+
 {% endblock content %}
