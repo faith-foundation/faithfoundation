@@ -31,4 +31,19 @@ DATABASES = {
     }
 }
 
-mysql -hcontainers-us-west-173.railway.app -uroot -pMXnMKpFMzK2HURLejI5D --port 8069 --protocol=TCP railway
+
+
+LOCALHOST
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test_db',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
+}
+
+https://www.facebook.com/profile.php?id=100064406813387&sk=photos_albums
