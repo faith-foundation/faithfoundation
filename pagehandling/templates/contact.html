@@ -3,34 +3,26 @@
 {% block content %}
 
 <style>
-    li{
-    color: red;
-    }
+  #id_subject{
+  float:right;
+  width: 250px;
+  }
 
-    .contactform{
-    border:1px solid black;
-    height: 270px;
-    padding: 20px;
-    width: 450px
-    }
+  #id_mobile_number{
+  float:right;
+  width: 250px;
+  }
 
-    label{
-    float: left;
-    }
+  #id_message{
+  float:right;
+  resize: none;
+  height: 90px;
+  width: 250px;
+  }
 
-    input{
-    float: right;
-    }
-
-    #id_message{
-        float: right;
-        resize: none;
-        height: 70px;
-        width: 250px;
-        }
 </style>
 
-<h1 style="text-align:center;">Contact</h1>
+<!--<h1 style="text-align:center;">Contact</h1>-->
 
 {% if messages %}
 <ul class="messages container">
@@ -42,28 +34,62 @@
 </ul>
 {% endif %}
 
-<div class="container">
 
-<div class="container contactform" id="#">
-<form action = "" method = "post">
-	{% csrf_token %}
-    <label>Subject</label>
-	{{ form.subject }}
+      <div class="content">
 
-    <br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mr-auto">
+          <h1 class="fw-light">Contact</h1>
+          <p class="mb-5 lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quaerat autem corrupti asperiores accusantium et fuga! Facere excepturi, quo eos, nobis doloremque dolor labore expedita illum iusto, aut repellat fuga!</p>
 
-    <label>Mobile number</label>
-	{{ form.mobile_number }}
+          <ul class="list-unstyled pl-md-5 mb-5">
+            <li class="d-flex text-black mb-2">
+              <span class="mr-3"><span class="icon-map"></span></span> 34 Street Name, City Name Here, <br> United States
+            </li>
+            <li class="d-flex text-black mb-2"><span class="mr-3"><span class="icon-phone"></span></span> +1 (222) 345 6789</li>
+            <li class="d-flex text-black"><span class="mr-3"><span class="icon-envelope-o"></span></span> info@mywebsite.com </li>
+          </ul>
+        </div>
 
-    <br><br>
+        <div class="col-md-6 container" style="border: 1px solid lightgrey; padding: 15px; height: 320px;">
+          <form class="mb-5" action="" method="post" id="contactForm" name="contactForm">
+	            {% csrf_token %}
+            <div class="row">
 
-    <label>Message</label>
-	{{ form.message }}
+              <div class="col-md-12 form-group">
+                <label class="col-form-label">Subject</label>
+                    	{{ form.subject }}
+              </div>
+            </div>
 
-    <br><br><br><br>
+            <br>
 
-	<input  class="btn btn-primary" type="submit" value=Submit>
-</form>
-    </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <label class="col-form-label">Mobile number</label>
+	            {{ form.mobile_number }}
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <label class="col-form-label">Message</label>
+                  {{ form.message }}
+
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-12">
+                <input type="submit" value="Send Message" style="float:right;" class="btn btn-primary rounded-1 py-2 px-4">
+                <span class="submitting"></span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
 
 {% endblock content %}
