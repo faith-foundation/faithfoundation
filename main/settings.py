@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test_db',
+        'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'PASSWORD': 'MXnMKpFMzK2HURLejI5D',
+        'HOST': 'containers-us-west-173.railway.app',   # Or an IP Address that your DB is hosted on
+        'PORT': '8069',
     }
 }
 

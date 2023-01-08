@@ -19,3 +19,16 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'MXnMKpFMzK2HURLejI5D',
+        'HOST': 'containers-us-west-173.railway.app',   # Or an IP Address that your DB is hosted on
+        'PORT': '8069',
+    }
+}
+
+mysql -hcontainers-us-west-173.railway.app -uroot -pMXnMKpFMzK2HURLejI5D --port 8069 --protocol=TCP railway

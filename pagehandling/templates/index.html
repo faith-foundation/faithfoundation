@@ -2,9 +2,28 @@
 {% block title %}Faith Foundation{% endblock %}
 {% block content %}
 
+<style>
+  .banner {
+  transition: box-shadow .2s;
+  }
+
+  .banner:hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+  .small-event {
+  transition: box-shadow .3s;
+  }
+
+  .small-event:hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+</style>
+
 {% for event in banner_list %}
 
-        <div class="container col-xxl-8 px-4 py-5" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+        <div class="container col-xxl-8 px-4 py-5 border banner">
           <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-6">
               <img src="https://scontent.fpnq2-1.fna.fbcdn.net/v/t39.30808-6/309321561_460708729419350_8061883825852105870_n.jpg?stp=dst-jpg_s960x960&_nc_cat=111&ccb=1-7&_nc_sid=e3f864&_nc_ohc=uUYZKNJxAnkAX-UmXWL&_nc_ht=scontent.fpnq2-1.fna&oh=00_AfBkYusgc2eYNY-YDLAYD_rq2iJOmZeLhg9cT7xaDad-sg&oe=63B806AD" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
@@ -24,16 +43,17 @@
 
 {% endfor %}
 
-{% for landing in landing_event %}
 
+<div class="container" style="border: 1px solid transparent;">
+{% for landing in landing_event %}
 
   <div class="container mt-5">
 
-        <div class="row mb-2">
+        <div class="row mb-2" >
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative small-event">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">{{ landing.notification }}</strong>
+          <strong class="d-inline-block mb-2 text-danger">{{ landing.notification }}</strong>
           <h3 class="mb-0">{{ landing.title }}</h3>
           <div class="mb-1 text-muted">{{ landing.date | date:"M d" }}</div>
           <p class="card-text mb-auto">{{ landing.description }}</p>
@@ -42,12 +62,14 @@
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 </div>
+
       </div>
+
     </div>
-
-
-
+          <div class="col-md-6 container" style="border: 1px solid black; padding: 15px; ">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet illo illum laudantium magni perferendis repellat tempore? Accusamus eos error modi, officia omnis provident! Delectus dolores error eum magnam officiis vero.
+        </div>
+</div>
 {% endfor %}
-
 
 {% endblock content %}
