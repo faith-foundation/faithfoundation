@@ -15,7 +15,7 @@
 {% for event in event_list %}
 <div class="container">
 <div class="card container" style="width: 18rem;">
-  <img src="#" class="card-img-top" alt="...">
+  <img src="{{ event.event_image.url }}" class="card-img-top" alt="No-IMG">
   <div class="card-body">
     <h5 class="card-title">{{ event.name }}</h5>
     <p>Location: <b>{{ event.venue }}</b></p>

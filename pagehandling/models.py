@@ -7,7 +7,7 @@ class Event(models.Model):
     venue = models.CharField(max_length=150)
     manager = models.CharField(max_length=150)
     description = models.TextField(max_length=900, blank=True)
-    event_image = models.CharField(max_length=2500)
+    event_image = models.ImageField(upload_to='uploads/')
 
     def __str__(self):
         return self.name
@@ -15,7 +15,7 @@ class Event(models.Model):
 class Banner(models.Model):
     title = models.CharField('Event Title', max_length=80)
     description = models.TextField('Description', max_length=300)
-    banner_image = models.CharField(max_length=2500)
+    banner_image = models.ImageField(upload_to='uploads/')
 
     def __str__(self):
         return self.title
@@ -25,7 +25,7 @@ class LandingEvent(models.Model):
     date = models.DateTimeField('Event Date')
     description = models.TextField('Description', max_length=70)
     notification = models.CharField('Notification', max_length=10)
-    banner_image = models.CharField(max_length=2500)
+    banner_image = models.ImageField(upload_to='uploads/')
 
     def __str__(self):
         return self.title
@@ -34,3 +34,11 @@ class Contact(models.Model):
     subject = models.CharField('Subject', max_length=70)
     mobile_number = models.CharField('Mobile Number', max_length=10, primary_key=True)
     message = models.TextField('Message', max_length=500)
+
+class PhotoAlbumCover(models.Model):
+    album_name = models.CharField(max_length=150)
+    album_date = models.DateTimeField()
+    album_cover = models.ImageField(upload_to='uploads/')
+
+    def __str__(self):
+        return self.album_name

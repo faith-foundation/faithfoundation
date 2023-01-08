@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import Event, LandingEvent, Banner
+from .models import Event, LandingEvent, Banner, PhotoAlbumCover
 from .forms import contact_form
 from django.views.generic import TemplateView
 # Create your views here.
@@ -21,6 +21,10 @@ def about(request):
 def event_view(request):
     event_list = Event.objects.all()
     return render(request, 'event-view.html', {'event_list':event_list})
+
+def photo_album_view(request):
+    album_list = PhotoAlbumCover.objects.all()
+    return render(request, 'photo_album_view.html', {'album_list': album_list})
 
 # def landing_events(request):
 #     landing_list = LandingEvent.objects.all()

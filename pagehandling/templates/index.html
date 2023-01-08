@@ -26,7 +26,7 @@
         <div class="container col-xxl-8 px-4 py-5 border banner">
           <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-6">
-              <img src="https://scontent.fpnq2-1.fna.fbcdn.net/v/t39.30808-6/309321561_460708729419350_8061883825852105870_n.jpg?stp=dst-jpg_s960x960&_nc_cat=111&ccb=1-7&_nc_sid=e3f864&_nc_ohc=uUYZKNJxAnkAX-UmXWL&_nc_ht=scontent.fpnq2-1.fna&oh=00_AfBkYusgc2eYNY-YDLAYD_rq2iJOmZeLhg9cT7xaDad-sg&oe=63B806AD" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+              <img src="{{ event.banner_image.url }}" width="500" height="300" loading="lazy">
             </div>
             <div class="col-lg-6">
 
@@ -60,16 +60,12 @@
           <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <img class="bd-placeholder-img" src="{{ landing.banner_image.url }}" width="200" height="250" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
 </div>
-
       </div>
-
     </div>
-          <div class="col-md-6 container" style="border: 1px solid black; padding: 15px; ">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet illo illum laudantium magni perferendis repellat tempore? Accusamus eos error modi, officia omnis provident! Delectus dolores error eum magnam officiis vero.
-        </div>
 </div>
-{% endfor %}
 
+{% endfor %}
+      
 {% endblock content %}
