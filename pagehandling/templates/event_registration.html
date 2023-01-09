@@ -2,8 +2,16 @@
 {% block title %}Event Registration{% endblock %}
 {% block content %}
 
+<style>
+    label{
+    float:left;
+    }
+    input, select{
+    float:right;
+    }
+</style>
 
-<h1>Events</h1>
+<h1 class="text-center">Events</h1>
 
 <br><br>
 
@@ -18,12 +26,38 @@
 {% endif %}
 
 
-<div>
+<div class="container" style="border: 1px solid transparent; width: 500px;">
 <form action = "" method = "post">
 	{% csrf_token %}
-	{{form.as_p }}
-	<input type="submit" value=Submit>
+
+    <label>First name </label>
+	{{form.first_name }}
+
+    <br><br>
+
+    <label>Last name </label>
+    {{form.last_name }}
+
+    <br><br>
+
+    <label>Mobile number </label>
+    {{form.mobile_number }}
+
+    <br><br>
+
+    <label>Select event</label>
+    {{form.event }}
+
+    <br><br>
+
+    <label>Number of family members</label>
+    {{form.count_of_family }}
+
+    <br><br>
+
+    <input class="btn btn-primary" style="float:right;" value="Register" type="submit">
 </form>
+
 </div>
 
 

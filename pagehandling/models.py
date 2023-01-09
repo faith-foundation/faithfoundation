@@ -1,6 +1,31 @@
 from django.db import models
 # Create your models here.
 
+event_choices = (
+    ("Spiritual Camp - Winter", "Spiritual Camp - Winter"),
+    ("Spiritual Camp - Summer", "Spiritual Camp - Summer"),
+    ("Spiritual Camp - Lent", "Spiritual Camp - Winter"),
+    ("David - Musical Play", "David - Musical Play"),
+    ("Passion of Christ - Play", "Passion of Christ"),
+    ("Lent Prayers", "Lent Prayers"),
+    ("Revival Meetings", "Revival Meetings"),
+    ("Free Medical Checkup Camps", "Free Medical Checkup Camps"),
+    ("Carol Singing", "Carol Singing"),
+)
+
+family_count = (
+    ("1", "1"),
+    ("2", "2"),
+    ("3", "3"),
+    ("4", "4"),
+    ("5", "5"),
+    ("6", "6"),
+    ("7", "7"),
+    ("8", "8"),
+    ("9", "9"),
+    ("10", "10"),
+)
+
 class Event(models.Model):
     name = models.CharField('Event Name', max_length=150)
     event_date = models.DateTimeField('Event Date')
@@ -42,3 +67,13 @@ class PhotoAlbumCover(models.Model):
 
     def __str__(self):
         return self.album_name
+
+class EventForm(models.Model):
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
+    mobile_number = models.CharField(max_length=10)
+    event = models.CharField(max_length=100, choices=event_choices, default=None)
+    count_of_family = models.CharField(max_length=10, choices=family_count, default=None)
+
+    def __str__(self):
+        return self.first_name

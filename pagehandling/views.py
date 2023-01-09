@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .models import Event, LandingEvent, Banner, PhotoAlbumCover
-from .forms import contact_form
+from .forms import contact_form, event_registration_form
 from django.views.generic import TemplateView
 # Create your views here.
 
@@ -26,11 +26,6 @@ def photo_album_view(request):
     album_list = PhotoAlbumCover.objects.all()
     return render(request, 'photo_album_view.html', {'album_list': album_list})
 
-# def landing_events(request):
-#     landing_list = LandingEvent.objects.all()
-#     return render(request, 'index.html', {'landing_list':landing_list})
-
-
 def contact(request):
     context = {}
     form = contact_form(request.POST or None, request.FILES or None)
@@ -40,5 +35,16 @@ def contact(request):
 
     context['form'] = form
     return render(request, 'contact.html', context)
+
+def event_form(request):
+    context = {}
+    form = event_registration_form(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        messages.success(request, 'Form Submitted!')
+        form.save()
+
+    context['form'] = form
+    return render(request, 'event_registration.html', context)
+
 
 
