@@ -71,7 +71,7 @@ class PhotoAlbumCover(models.Model):
 class EventForm(models.Model):
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
-    mobile_number = models.CharField(max_length=10)
+    mobile_number = models.CharField(max_length=10, primary_key=True)
     event = models.CharField(max_length=100, choices=event_choices, default=None)
     count_of_family = models.CharField(max_length=10, choices=family_count, default=None)
 

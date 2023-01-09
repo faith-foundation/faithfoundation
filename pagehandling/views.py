@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.contrib import messages
 from .models import Event, LandingEvent, Banner, PhotoAlbumCover
 from .forms import contact_form, event_registration_form
-from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 
@@ -36,6 +37,7 @@ def contact(request):
     context['form'] = form
     return render(request, 'contact.html', context)
 
+@login_required(login_url='login') #redirect when user is not logged in
 def event_form(request):
     context = {}
     form = event_registration_form(request.POST or None, request.FILES or None)
