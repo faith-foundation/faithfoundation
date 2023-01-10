@@ -2,31 +2,12 @@
 {% block title %}Faith Foundation{% endblock %}
 {% block content %}
 
-<style>
-  .banner {
-  transition: box-shadow .2s;
-  }
-
-  .banner:hover {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    }
-
-  .small-event {
-  transition: box-shadow .3s;
-  }
-
-  .small-event:hover {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    }
-
-</style>
-
 {% for event in banner_list %}
 
         <div class="container col-xxl-8 px-4 py-5 border banner">
           <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-6">
-              <img src="{{ event.banner_image.url }}" width="500" height="300" loading="lazy">
+              <img src="{{ event.banner_image.url }}" width="100%" height="100%" loading="lazy">
             </div>
             <div class="col-lg-6">
 
@@ -44,27 +25,27 @@
 {% endfor %}
 
 
-<div class="container" style="border: 1px solid transparent;">
-{% for landing in landing_event %}
+        <div class="container" style="border: 1px solid transparent;">
+        {% for landing in landing_event %}
 
-  <div class="container mt-5">
+          <div class="container mt-5">
 
-        <div class="row mb-2" >
-    <div class="col-md-6">
-      <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative small-event">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-danger">{{ landing.notification }}</strong>
-          <h3 class="mb-0">{{ landing.title }}</h3>
-          <div class="mb-1 text-muted">{{ landing.date | date:"M d" }}</div>
-          <p class="card-text mb-auto">{{ landing.description }}</p>
-          <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+                <div class="row mb-2" >
+            <div class="col-md-6">
+              <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative small-event">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-danger">{{ landing.notification }}</strong>
+                  <h3 class="mb-0">{{ landing.title }}</h3>
+                  <div class="mb-1 text-muted">{{ landing.date | date:"M d" }}</div>
+                  <p class="card-text mb-auto">{{ landing.description }}</p>
+                  <a href="{% url 'event-registration' %}" class="btn btn-primary">Register</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                  <img class="bd-placeholder-img" src="{{ landing.banner_image.url }}" width="200" height="250" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img class="bd-placeholder-img" src="{{ landing.banner_image.url }}" width="200" height="250" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-</div>
-      </div>
-    </div>
-</div>
+              </div>
+            </div>
+        </div>
 
 {% endfor %}
       

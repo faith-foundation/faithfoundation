@@ -60,10 +60,19 @@ class Contact(models.Model):
     mobile_number = models.CharField('Mobile Number', max_length=10, primary_key=True)
     message = models.TextField('Message', max_length=500)
 
-class PhotoAlbumCover(models.Model):
+class PhotoAlbum(models.Model):
     album_name = models.CharField(max_length=150)
     album_date = models.DateTimeField()
-    album_cover = models.ImageField(upload_to='uploads/')
+    photo_1 = models.ImageField(upload_to='uploads/')
+    photo_2 = models.ImageField(upload_to='uploads/')
+    photo_3 = models.ImageField(upload_to='uploads/')
+    photo_4 = models.ImageField(upload_to='uploads/')
+    photo_5 = models.ImageField(upload_to='uploads/')
+    photo_6 = models.ImageField(upload_to='uploads/')
+    photo_7 = models.ImageField(upload_to='uploads/')
+    photo_8 = models.ImageField(upload_to='uploads/')
+    photo_9 = models.ImageField(upload_to='uploads/')
+    photo_10 = models.ImageField(upload_to='uploads/')
 
     def __str__(self):
         return self.album_name
@@ -71,7 +80,6 @@ class PhotoAlbumCover(models.Model):
 class EventForm(models.Model):
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
-    mobile_number = models.CharField(max_length=10, primary_key=True)
     event = models.CharField(max_length=100, choices=event_choices, default=None)
     count_of_family = models.CharField(max_length=10, choices=family_count, default=None)
 

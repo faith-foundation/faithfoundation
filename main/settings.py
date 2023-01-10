@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
+        'NAME': 'test_faith_db',
         'USER': 'root',
-        'PASSWORD': 'MXnMKpFMzK2HURLejI5D',
-        'HOST': 'containers-us-west-173.railway.app',   # Or an IP Address that your DB is hosted on
-        'PORT': '8069',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
