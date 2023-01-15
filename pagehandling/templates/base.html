@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/886fc7e0ef.js" crossorigin="anonymous"></script>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+              crossorigin="anonymous">
+      <!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        
+      -->
+        <script src="https://kit.fontawesome.com/886fc7e0ef.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet"
+              href="../pagehandling/assets/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="../pagehandling/assets/css/themify-icons.css" />
+        <link rel="stylesheet" href="../pagehandling/assets/css/style.css" />
+        <link href="../pagehandling/assets/img/favicon.ico" rel="shortcut icon" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i"
+              rel="stylesheet">
+        <!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+        <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@310&display=swap');
         body{
         font-family: 'Noto Sans', sans-serif;
@@ -16,14 +36,358 @@
         html {
          scroll-behavior: smooth;
         }
-    </style>
-</head>
-<body>
-    {% include "includes/header.html" %}
+        </style>
+    </head>
+    <body>
+        <div id="preloder">
+            <div class="loader"></div>
+          </div>  
+        {% include "includes/header.html" %}
+       
+        {% block content %}
+        {% endblock content %}
+       
 
-    {% block content %}{% endblock content%}
-    
-    {% include "includes/footer.html" %}
 
-</body>
+
+        {% comment %}
+
+        <section class="sermon-section spad">
+            <div class="section-title">
+                <span>Experience God's Presence</span>
+                <h2>
+                    Sermon Today
+                </h2>
+            </div>
+            <div class="sermon-warp">
+                <div class="sermon-left-bg set-bg" data-setbg="img/sermon-bg.jpg">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-6">
+                            <div class="sermon-content">
+                                <h2>
+                                    Lord Is Sufficient For All Of Our Needs
+                                </h2>
+                                <ul class="sermon-info">
+                                    <li>
+                                        Sermon From: <span>Vincent John</span>
+                                    </li>
+                                    <li>
+                                        Categories: <span>God, Pray</span>
+                                    </li>
+                                    <li>
+                                        <span>On Monday 23 DEC, 2018</span>
+                                    </li>
+                                </ul>
+                                <p>
+                                    For God did not send his Son into the world to condemn the world, but to save the world through him.
+                                </p>
+                                <p>
+                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.
+                                </p>
+                                <div class="icon-links">
+                                    <a href="#"><i class="ti-link"></i></a>
+                                    <a href="#"><i class="ti-zip"></i></a>
+                                    <a href="#"><i class="ti-headphone"></i></a>
+                                    <a href="#"><i class="ti-import"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="event-list-section spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="section-title title-left">
+                            <span>Experience God's Presence</span>
+                            <h2>
+                                Upcoming Events
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right event-more">
+                        <a href="#" class="site-btn">view all events</a>
+                    </div>
+                </div>
+                <div class="event-list">
+                    <div class="el-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="el-thubm set-bg" data-setbg="img/event/1.jpg">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="el-content">
+                                    <div class="el-header">
+                                        <div class="el-date">
+                                            <h2>
+                                                20
+                                            </h2>
+                                            may
+                                        </div>
+                                        <h3>
+                                            Give To Help Each Child Grow Up Healthy
+                                        </h3>
+                                        <div class="el-metas">
+                                            <div class="el-meta">
+                                                <i class="fa fa-user"></i> Vincent John
+                                            </div>
+                                            <div class="el-meta">
+                                                <i class="fa fa-calendar"></i> Monday, 08:00 Am
+                                            </div>
+                                            <div class="el-meta">
+                                                <i class="fa fa-map-marker"></i> Central District, Riga, LV-1050, Latvia
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+                                    </p>
+                                    <a href="#" class="site-btn sb-line">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="el-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="el-thubm set-bg" data-setbg="img/event/2.jpg">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="el-content">
+                                    <div class="el-header">
+                                        <div class="el-date">
+                                            <h2>
+                                                16
+                                            </h2>
+                                            oct
+                                        </div>
+                                        <h3>
+                                            Your Support Helps Kids Survive & Thrive
+                                        </h3>
+                                        <div class="el-metas">
+                                            <div class="el-meta">
+                                                <i class="fa fa-user"></i> Vincent John
+                                            </div>
+                                            <div class="el-meta">
+                                                <i class="fa fa-calendar"></i> Monday, 08:00 Am
+                                            </div>
+                                            <div class="el-meta">
+                                                <i class="fa fa-map-marker"></i> Central District, Riga, LV-1050, Latvia
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+                                    </p>
+                                    <a href="#" class="site-btn sb-line">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="donate-section spad set-bg" data-setbg="img/donate-bg.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-7 donate-content">
+                        <h2>
+                            A Children’s Miracle Network Hospital
+                        </h2>
+                        <ul class="donate-info">
+                            <li>
+                                Sermon From: <span>Vincent John</span>
+                            </li>
+                            <li>
+                                Categories: <span>God, Pray</span>
+                            </li>
+                            <li>
+                                <span>On Monday 23 DEC, 2018</span>
+                            </li>
+                        </ul>
+                        <p>
+                            For God did not send his Son into the world to condemn the world, but to save the world through him. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-lg-5">
+                        <div class="donate-card">
+                            <h2>
+                                $45.000<span>Remaining to helps</span>
+                            </h2>
+                            <div class="donate-progress-bar">
+                                <div class="pb-inner">
+                                    <span>60%</span>
+                                </div>
+                            </div>
+                            <div class="donate-progress-info">
+                                <div class="di-left">
+                                    Raised: <span>$50,000</span>
+                                </div>
+                                <div class="di-right">
+                                    Goal: <span>$95,000</span>
+                                </div>
+                            </div>
+                            <a href="#" class="site-btn sb-full">DONATE NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="blog-section spad">
+            <div class="container">
+                <div class="section-title">
+                    <span>Experience God's Presence</span>
+                    <h2>
+                        LATEST NEWS
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="blog-item">
+                            <div class="bi-thumb set-bg" data-setbg="img/blog/1.jpg">
+                            </div>
+                            <div class="bi-content">
+                                <div class="date">
+                                    On Monday 13 May, 2018
+                                </div>
+                                <h4>
+                                    <a href="single-blog.html">Give To End Childhood illnesses</a>
+                                </h4>
+                                <div class="bi-author">
+                                    by <a href="#">Sofia Joelsson</a>
+                                </div>
+                                <a href="#" class="bi-cata">Hope & Faithful</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="blog-item">
+                            <div class="bi-thumb set-bg" data-setbg="img/blog/2.jpg">
+                            </div>
+                            <div class="bi-content">
+                                <div class="date">
+                                    On Monday 13 May, 2018
+                                </div>
+                                <h4>
+                                    <a href="single-blog.html">Meet Our 2018 Patient Ambassadors</a>
+                                </h4>
+                                <div class="bi-author">
+                                    by <a href="#">Sofia Joelsson</a>
+                                </div>
+                                <a href="#" class="bi-cata">color Story</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="blog-item">
+                            <div class="bi-thumb set-bg" data-setbg="img/blog/3.jpg">
+                            </div>
+                            <div class="bi-content">
+                                <div class="date">
+                                    On Monday 13 May, 2018
+                                </div>
+                                <h4>
+                                    <a href="single-blog.html">Why We Give Back To Children's Colorado</a>
+                                </h4>
+                                <div class="bi-author">
+                                    by <a href="#">Sofia Joelsson</a>
+                                </div>
+                                <a href="#" class="bi-cata">Sermon & Pray</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-7">
+                        <h4>
+                            Subscribe And Tell Us Real Story About Your Journey
+                        </h4>
+                    </div>
+                    <div class="col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-0">
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button class="nl-send-btn">
+                                subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footer-top-section spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 footer-top-content">
+                        <div class="section-title title-left">
+                            <h2>
+                                Contact Us
+                            </h2>
+                        </div>
+                        <h3>
+                            New York, USA
+                        </h3>
+                        <p>
+                            207 Park Avenue New York, NY 90210
+                        </p>
+                        <p>
+                            <span>Email:</span> <a href="https://preview.colorlib.com/cdn-cgi/l/email-protection"
+    class="__cf_email__"
+    data-cfemail="c9a0a7afa689aaa6a5a6bba5a0abe7aaa6a4">[email&#160;protected]</a>
+                        </p>
+                        <h4>
+                            Phone:
+                        </h4>
+                        <h5>
+                            +1 (409) 987–4567
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="map-area" id="map-canvas">
+            </div>
+        </section> {% endcomment %}
+        <footer class="footer-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 copyright">
+                        &copy; 2022 Faith Foundation                    </div>
+                    <div class="col-sm-6">
+                        <div class="social">
+                            <a href="#"><i class="ti-facebook"></i></a>
+                            <a href="#"><i class="ti-twitter-alt"></i></a>
+                            <a href="#"><i class="ti-google"></i></a>
+                            <a href="#"><i class="ti-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="../pagehandling/assets/js/jquery-3.2.1.min.js"></script>
+        <script src="../pagehandling/assets/js/jquery.countdown.js"></script>
+        <script src="../pagehandling/assets/js/main.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+        <script src="../pagehandling/assets/js/map.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+        <script>
+                          window.dataLayer = window.dataLayer || [];
+                          function gtag(){dataLayer.push(arguments);}
+                          gtag('js', new Date());
+                        
+                          gtag('config', 'UA-23581568-13');
+        </script>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"7896648e1a4b8583","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.11.3","si":100}' crossorigin="anonymous"></script>
+
+     
+        {% comment %} {% include "includes/footer.html" %} {% endcomment %}
+    </body>
 </html>

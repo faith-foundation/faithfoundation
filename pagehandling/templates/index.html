@@ -1,52 +1,154 @@
 {% extends 'base.html' %}
 {% block title %}Faith Foundation{% endblock %}
 {% block content %}
-
-{% for event in banner_list %}
-
-        <div class="container col-xxl-8 px-4 py-5 border banner">
-          <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div class="col-10 col-sm-8 col-lg-6">
-              <img src="{{ event.banner_image.url }}" width="100%" height="100%" loading="lazy">
-            </div>
-            <div class="col-lg-6">
-
-              <h1 class="display-5 fw-bold lh-1 mb-3">{{ event.title }}</h1>
-              <p class="lead">{{ event.description }}</p>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-
-                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
-              </div>
-            </div>
+  {% for event in banner_list %}
+    <section class="hero-section set-bg"
+             data-setbg="{{ event.banner_image.url }}">
+      <div class="hero-content">
+        <div class="hc-inner">
+          <div class="container">
+            <h2>{{ event.title }}</h2>
+            <p>{{ event.description }}</p>
+            <a href="#" class="site-btn sb-wide sb-line">join with us</a>
           </div>
         </div>
+      </div>
+    </section>
 
-{% endfor %}
-
-
-        <div class="container" style="border: 1px solid transparent;">
-        {% for landing in landing_event %}
-
-          <div class="container mt-5">
-
-                <div class="row mb-2" >
-            <div class="col-md-6">
-              <div class="row g-0 border overflow-hidden flex-md-row mb-4 h-md-250 position-relative small-event">
-                <div class="col p-4 d-flex flex-column position-static">
-                  <strong class="d-inline-block mb-2 text-danger">{{ landing.notification }}</strong>
-                  <h3 class="mb-0">{{ landing.title }}</h3>
-                  <div class="mb-1 text-muted">{{ landing.date | date:"M d" }}</div>
-                  <p class="card-text mb-auto">{{ landing.description }}</p>
-                  <a href="{% url 'event-registration' %}" class="btn btn-primary">Register</a>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                  <img class="bd-placeholder-img" src="{{ landing.banner_image.url }}" width="200" height="250" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+    {% comment %} <div class="container col-xxl-8 px-4 py-5 border banner">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img src="{{ event.banner_image.url }}"
+               width="100%"
+               height="100%"
+               loading="lazy">
         </div>
-              </div>
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold lh-1 mb-3">{{ event.title }}</h1>
+          <p class="lead">{{ event.description }}</p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+  {% endfor %}
+  {% for landing in landing_event %}
+  <section class="event-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-lg-6">
+                <div class="event-info">
+                    <div class="event-date">
+                        <h2>{{ landing.date | date:"d" }}</h2>
+                        {{ landing.date | date:"M" }}
+                    </div>
+                    <h3>{{ landing.title }}</h3>
+                    <p>
+                        <i class="fa fa-calendar"></i> {{ landing.date  }}<i class="fa fa-map-marker"></i> {{ landing.description }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-7 col-lg-6">
+                <div class="counter">
+                    <div class="counter-item">
+                        <h4>10</h4>
+                        Days
+                    </div>
+                    <div class="counter-item">
+                        <h4>08</h4>
+                        hours
+                    </div>
+                    <div class="counter-item">
+                        <h4>40</h4>
+                        Mins
+                    </div>
+                    <div class="counter-item">
+                        <h4>
+                            56
+                        </h4>
+                        secs
+                    </div>
+                </div>
+                <a href="{% url 'event-registration' %}" class="site-btn sb-light-line">Register</a>
             </div>
         </div>
-
+    </div>
+</section>
 {% endfor %}
-      
-{% endblock content %}
+
+<section class="about-section spad">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 about-content">
+              <h2>
+                  Let's Make the World Better Together
+              </h2>
+              <p>
+                  For God did not send his Son into the world to condemn the world,
+                  <br>
+                  but to save the world through him.
+              </p>
+              <p>
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  <br>
+                  officia dese mollit anim id est laborum. Sed ut perspiciatis
+                  <br>
+                  unde omnis iste.
+              </p>
+              <a href="#" class="site-btn sb-wide">join with us</a>
+          </div>
+          <div class="col-md-6 about-img">
+              <img src="../pagehandling/assets/img/about.jpg" alt="">
+          </div>
+      </div>
+  </div>
+</section>
+<section class="services-section spad">
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-4">
+              <div class="service-box">
+                  <h4>
+                      <i class="fa fa-fire"></i>Our Values
+                  </h4>
+                  <p>
+                      Excepteur sint occaecat cupidatat non,
+                      <br>
+                      sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.
+                  </p>
+                  <a href="#" class="s-readmore">Readmore <i class="fa fa-angle-double-right"></i></a>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="service-box">
+                  <h4>
+                      <i class="fa fa-eye"></i>Our Vision
+                  </h4>
+                  <p>
+                      Excepteur sint occaecat cupidatat non,
+                      <br>
+                      sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.
+                  </p>
+                  <a href="#" class="s-readmore">Readmore <i class="fa fa-angle-double-right"></i></a>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="service-box">
+                  <h4>
+                      <i class="fa fa-heart"></i>Our Mission
+                  </h4>
+                  <p>
+                      Excepteur sint occaecat cupidatat non,
+                      <br>
+                      sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.
+                  </p>
+                  <a href="#" class="s-readmore">Readmore <i class="fa fa-angle-double-right"></i></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+    {% endblock content %}

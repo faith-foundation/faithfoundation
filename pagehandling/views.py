@@ -23,8 +23,15 @@ def about(request):
 
 
 def event_view(request):
+    banner_list = Banner.objects.all()
     event_list = Event.objects.all()
-    return render(request, 'event-view.html', {'event_list': event_list})
+    landing_event = LandingEvent.objects.all()
+    return render(request, 'event-view.html', {'event_list': event_list,'banner_list': banner_list,'landing_event': landing_event,})
+
+def event_Reg(request):
+    banner_list = Banner.objects.all()
+    event_list = Event.objects.all()
+    return render(request, 'event_registration.html', {'event_list': event_list,'banner_list': banner_list,})
 
 
 def photo_album_view(request):

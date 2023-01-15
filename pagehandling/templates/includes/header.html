@@ -1,5 +1,5 @@
 {% block content %}
-<style>
+  <style>
   .hvr{
   border-radius: 100px;
   }
@@ -7,9 +7,223 @@
   background-color: #2ed177;
   }
 
-</style>
 
-<div class="container" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; margin-top:15px;">
+  .icons-size{
+    color: #333;
+    font-size: 14px;
+}
+.action{
+    position: fixed;
+    right: 30px;
+    top:20px
+}
+.action .profile{
+    border-radius: 50%;
+    cursor: pointer;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    width: 60px;
+}
+.action .profile img{
+    width: 100%;
+    top:0;
+    position: absolute;
+    object-fit: cover;
+    left: 0;
+    height: 100%;
+}
+.action .menu{
+    background-color:#FFF;
+    box-sizing:0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 10px 20px;
+    position: absolute;
+    right: -10px;
+    width: 200px;
+    transition: 0.5s;
+    top: 120px;
+    visibility: hidden;
+    opacity: 0;
+}
+.action .menu.active{
+    opacity: 1;
+    top: 80px;
+    visibility: visible;
+}
+.action .menu::before{
+    background-color:#fff;
+    content: '';
+    height: 20px;
+    position: absolute;
+    right: 30px;
+    transform:rotate(45deg);
+    top:-5px;
+    width: 20px;
+}
+.action .menu h3{
+    color: #555;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3em;
+    padding: 20px 0px;
+    text-align: left;
+    width: 100%;
+}
+.action .menu h3 div{
+    color: #818181;
+    font-size: 14px;
+    font-weight: 400;
+}
+.action .menu ul li{
+    align-items: center;
+    border-top:1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: left;
+    list-style: none;
+    padding: 10px 0px;
+}
+.action .menu ul li img{
+    max-width: 20px;
+    margin-right: 10px;
+    opacity: 0.5;
+    transition:0.5s
+}
+.action .menu ul li a{
+    display: inline-block;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+.action .menu ul li:hover img{
+    opacity: 1;
+}
+.action .menu ul li:hover a{
+    color:#ff00ff;
+}
+
+  </style>
+  <div class="top-nav-section hidden-xs">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+          <div class="social">
+            <a href="#"><i class="ti-facebook"></i></a>
+            <a href="#"><i class="ti-twitter-alt"></i></a>
+            <a href="#"><i class="ti-google"></i></a>
+            <a href="#"><i class="ti-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-7 col-lg-6">
+          <div class="counter-top">
+            <h5>Upcoming Event:</h5>
+            <div class="counter">
+              <div class="counter-item">
+                <h4>10</h4>
+                Days
+              </div>
+              <div class="counter-item">
+                <h4>08</h4>
+                hours
+              </div>
+              <div class="counter-item">
+                <h4>40</h4>
+                Mins
+              </div>
+              <div class="counter-item">
+                <h4>56</h4>
+                secs
+              </div>
+            </div>
+            <a href="#" class="top-readmore hidden-sm">readmore</a>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-2 col-lg-3">
+          <div class="action">
+          <div class="profile" onclick="menuToggle();">
+            <img src="user.png" alt="">
+          </div>
+          <div class="menu">
+            <h3>
+              User Account
+              <div>Operational Team</div>
+            </h3>
+            <ul>
+              <li>
+                <span class="material-icons icons-size">person</span>
+                <a href="#">My Profile</a>
+              </li>
+              <li>
+                <span class="material-icons icons-size">mode</span>
+                <a href="#">Edit Account</a>
+              </li>
+              <li>
+                <span class="material-icons icons-size">insert_comment</span>
+                <a href="#">Comments</a>
+              </li>
+              <li>
+                <span class="material-icons icons-size">monetization_on</span>
+                <a href="#">Budget</a>
+              </li>
+              <li>
+                <span class="material-icons icons-size">account_balance</span>
+                <a href="#">Finance</a>
+              </li>
+              <li>
+                <span class="material-icons icons-size">account_balance_wallet</span>
+                <a href="#">Wallet</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        </div>
+        <div class="user-input">
+          <a href="#">My account <i class="fa fa-angle-down"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<header class="header-section">
+  <div class="container">
+    <a href="index-2.html" class="site-logo">
+      <img src="../pagehandling/assets/img/FAITH logo cmyk red-01.png" alt="">
+    </a>
+    <div class="nav-switch">
+      <i class="fa fa-bars"></i>
+    </div>
+    <nav class="main-menu">
+      <ul>
+        <li class="active">
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+          <a href="{% url 'event-view' %}">Events</a>
+        </li>
+        <li>
+          <a href="{% url 'photo-album' %}">Photos</a>
+        </li>
+        <li>
+          <a href="{% url 'about' %}">About</a>
+        </li>
+        <li>
+          <a href="{% url 'contact' %}">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<script>
+  function menuToggle(){
+      const toggleMenu = document.querySelector('.menu');
+      toggleMenu.classList.toggle('active')
+  }
+</script>
+{% comment %} <div class="container" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; margin-top:15px;">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
       <a href="{% url 'home' %}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         <img class="bi me-2" width="40" height="32" href aria-label="Bootstrap" src="https://scontent.fpnq2-1.fna.fbcdn.net/v/t39.30808-1/307843684_460708726086017_2128472403665626846_n.jpg?stp=c17.0.40.40a_cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=c6021c&_nc_ohc=qSNH-x4GTKUAX8fGM0S&_nc_ht=scontent.fpnq2-1.fna&oh=00_AfAqaI5wO9EJY8ohw91prRJaLku0HzhNA4uIq1DDC-ivHg&oe=63B99E8C">
@@ -34,7 +248,5 @@
       
       </div>
     </header>
-  </div>
-
-
-  {% endblock content%}
+</div>   {% endcomment %}
+{% endblock content %}

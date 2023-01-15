@@ -78,8 +78,8 @@ class PhotoAlbum(models.Model):
         return self.album_name
 
 class EventForm(models.Model):
-    first_name = models.CharField(max_length=150)
-    last_name = models.CharField(max_length=150)
+    first_name = models.CharField(max_length=150,default=None)
+    last_name = models.CharField(max_length=150,default=None)
     event = models.CharField(max_length=100, choices=event_choices, default=None)
     count_of_family = models.CharField(max_length=10, choices=family_count, default=None)
 

@@ -2,30 +2,132 @@
 {% load static %}
 {% block title %}Events{% endblock %}
 {% block content %}
+  {% for event in banner_list %}
+    <section class="page-info-section set-bg"
+             data-setbg="{{ event.banner_image.url }}">
+      <div class="page-info-content">
+        <div class="pi-inner">
+          <div class="container">
+            <h2>Event List</h2>
+            <div class="site-breadcrumb">
+              <a href="#">Home</a> <i class="fa fa-angle-right"></i>
+              <span>Event List</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endfor %}
+  {% for landing in landing_event %}
+    <section class="event-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 col-lg-6">
+            <div class="event-info">
+              <div class="event-date">
+                <h2>{{ landing.date | date:"d" }}</h2>
+                {{ landing.date | date:"M" }}
+              </div>
+              <h3>{{ landing.title }}</h3>
+              <p>
+                <i class="fa fa-calendar"></i> {{ landing.date  }}<i class="fa fa-map-marker"></i> {{ landing.description }}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-7 col-lg-6">
+            <div class="counter">
+              <div class="counter-item">
+                <h4>10</h4>
+                Days
+              </div>
+              <div class="counter-item">
+                <h4>08</h4>
+                hours
+              </div>
+              <div class="counter-item">
+                <h4>40</h4>
+                Mins
+              </div>
+              <div class="counter-item">
+                <h4>56</h4>
+                secs
+              </div>
+            </div>
+            <a href="{% url 'event-registration' %}" class="site-btn sb-light-line">Register</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endfor %}
+  <section class="event-list-section spad">
+    <div class="container">
+      <div class="section-title title-left">
+        <span>Experience God's Presence</span>
+        <h2>Upcoming Events</h2>
+      </div>
+      <div class="event-list">
+        {% for event in event_list %}
+        <div class="el-item">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="el-thubm set-bg" data-setbg="{{ event.event_image.url }}"></div>
+            </div>
+            <div class="col-md-8">
+              <div class="el-content">
+                <div class="el-header">
+                  <div class="el-date">
+                    <h2>{{ event.event_date | date:"d" }}</h2>
+                    {{ event.event_date | date:"M" }}
+                  </div>
+                  <h3> {{ event.name }}</h3>
+                  <div class="el-metas">
+                    <div class="el-meta">
+                      <i class="fa fa-user"></i> Vincent John
+                    </div>
+                    <div class="el-meta">
+                      <i class="fa fa-calendar"></i> {{ event.event_date | date:"M d, Y" }}
+                    </div>
+                    <div class="el-meta">
+                      <i class="fa fa-map-marker"></i> {{ event.venue }}
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  {{ event.description }}          
+                      </p>
+                <a href="{% url 'event-registration' %}" class="site-btn sb-line">Register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+     
+    </div>
+  </section>
+ 
 
-<section class="text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Events</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+
+  {% comment %} {% for event in event_list %}
+    <div class="container">
+      <div class="card container" style="width: 18rem;">
+        <img src="{{ event.event_image.url }}" class="card-img-top" alt="No-IMG">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ event.name }}
+          </h5>
+          <p>
+            Location: <b>{{ event.venue }}</b>
+          </p>
+          <p>
+            When: <b>{{ event.event_date | date:"M d, Y" }}</b>
+          </p>
+          <p class="card-text">
+            {{ event.description }}
+          </p>
+          <a href="{% url 'event-registration' %}" class="btn btn-primary">Register</a>
+        </div>
       </div>
     </div>
-</section>
-
-{% for event in event_list %}
-<div class="container">
-<div class="card container" style="width: 18rem;">
-  <img src="{{ event.event_image.url }}" class="card-img-top" alt="No-IMG">
-  <div class="card-body">
-    <h5 class="card-title">{{ event.name }}</h5>
-    <p>Location: <b>{{ event.venue }}</b></p>
-    <p>When: <b>{{ event.event_date | date:"M d, Y" }}</b></p>
-    <p class="card-text">{{ event.description }}</p>
-    <a href="{% url 'event-registration' %}" class="btn btn-primary">Register</a>
-  </div>
-</div>
-</div>
-
-{% endfor %}
-
+  {% endfor %} {% endcomment %}
 {% endblock content %}
