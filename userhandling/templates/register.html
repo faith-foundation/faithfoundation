@@ -1,99 +1,198 @@
 {% extends 'base.html' %}
 {% block title %}Register{% endblock %}
+{% load add_class %}
 {% block content %}
+    <link rel="stylesheet" href="../userhandling/assets/material_ui_reg.css">
+    <link rel="stylesheet" href="../userhandling/assets/register.css">
+    <style>
+ 
 
-<style>
-    .registerpage{
-    border: 1px solid black;
-    padding: 50px;
+    select#id_date_of_birth_month {
+        width: 38%;
+        float: left;
+    }
+    select#id_date_of_birth_day {
+        width: 20%;
+        float: left;
+    }
+    select#id_date_of_birth_year {
+        width: 30%;
     }
 
-    input{
-    width: 200px;
+    .form-group .form-wrapper {
+        width: 100%;
+    }
+    h3 {
+        text-transform: uppercase;
+        font-size: 33px;
+        text-align: center;
+        margin-bottom: 26px;
+        color: #6d5555;
+        letter-spacing: 1px;
+        font-family: "Open Sans", sans-serif;
     }
 
-    #id_address{
-    resize: none;
-    height: 70px;
-    width: 200px;
+    .form-control:focus {
+        color: var(--bs-body-color);
+        
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.1rem rgb(13 110 253 / 25%);
     }
 
-    #id_gender, #id_language_of_choice{
-    width: 200px;
-    }
-
-</style>
-
-    <h2 style="text-align: center;">Register</h2>
-
+    
+.site-btn {
+    margin-left: 28px;
+    padding: 10px 10px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 2px;
+    background: #dd3e3e;
+    letter-spacing: 1px;
+    text-align: center;
+    height: 38px;
+    /* padding-bottom: 32px; */
+  }
+  
+  .site-btn.sb-line {
+    background-color: #ffffff !important;
+    border: 2px solid #dd3e3e !important;
+    color: #dd3e3e !important;
+    letter-spacing: 1px;
+}
+.button-holder {
+    width: 100%;
+}
+    </style>
+   
     {% if form.errors %}
-            <p class="alert alert-danger container">There was an error with your form!</p>
-                <p class="alert alert-warning container">There was an error with your form!</p>
+        <p class="alert alert-danger container">There was an error with your form!</p>
+        <p class="alert alert-warning container">There was an error with your form!</p>
     {% endif %}
-            
+    <div class="" style="background: #0202021a !important;">
+        <div class="wrapper wrapper--w900"  >
+   
+         
+        <div class="inner">
+            <form action="{% url 'register' %}" method="post">
+                <h3>Registration Form</h3>
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">Create UserName:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            {{ form.username |add_class:"form-control"}}
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">First Name:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            {{ form.first_name|add_class:"form-control" }}
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Last Name:</label>
+                        <div class="form-holder">
+                            <i style="font-style: normal; font-size: 15px;">@</i>
+                            {{ form.last_name |add_class:"form-control"}}
+                        </div>
+                    </div>
+                </div>
 
-    <div class="registerpage container ">
-    <form action="{% url 'register' %}" method="post">
-            {% csrf_token %}
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">Date Of Birth:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            {{ form.date_of_birth |add_class:"form-control"}}
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">Gender:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            {{ form.gender |add_class:"form-control"}}
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Language of Choice:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            {{ form.language_of_choice|add_class:"form-control" }}
 
-            {{ form.username }}
+                        </div>
+                    </div>
+                </div>
 
-            <br><br>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">Address:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            {{ form.address |add_class:"form-control"}}
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">Email ID:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            {{ form.email |add_class:"form-control"}}
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Mobile No:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            {{ form.mobile_number |add_class:"form-control"}}
+                        </div>
+                    </div>
+                </div>
 
-
-            {{ form.first_name }}
-
-            <br><br>
-
-
-            {{ form.last_name }}
-
-            <br><br>
-
-
-            {{ form.date_of_birth }}
-
-            <br><br>
-
-
-            {{ form.gender }}
-
-            <br><br>
-
-
-            {{ form.language_of_choice }}
-
-            <br><br>
-
-
-            {{ form.address }}
-
-            <br><br>
-
-
-            {{ form.email }}
-
-            <br><br>
-
-
-            {{ form.mobile_number }}
-
-            <br><br>
-
-
-            {{ form.password1 }}
-
-            <br><br>
-
-
-            {{ form.password2 }}
-
-            <br><br>
-        <input type="submit" value="Register" class="btn btn-success">
-        </form>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="">Enter Password:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            {{ form.password1|add_class:"form-control" }}
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <label for="">Confirmed Password:</label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-lock-outline"></i>
+                            {{ form.password2|add_class:"form-control" }}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-end">
+                    
+                    <div class="button-holder">
+                        <button type="submit" class="site-btn sb-line" value="Register">Register</button>
+                    </div>
+                </div>
+         
+            </form>
+        </div>
     </div>
-
-<script>
+</div>
+  
+    <script>
     document.getElementById("id_username").setAttribute("placeholder", "Jon123");
     document.getElementById("id_first_name").setAttribute("placeholder", "Jon");
     document.getElementById("id_last_name").setAttribute("placeholder", "Doe");
@@ -102,6 +201,5 @@
     document.getElementById("id_mobile_number").setAttribute("placeholder", "818-111-8181");
     document.getElementById("id_password1").setAttribute("placeholder", "Password");
     document.getElementById("id_password2").setAttribute("placeholder", "Re-Enter Password");
-</script>
-
+    </script>
 {% endblock content %}

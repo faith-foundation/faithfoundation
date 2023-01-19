@@ -5,10 +5,6 @@
   <head>
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
     <meta charset="utf-8">
-    <title>Photobox - CSS3 image gallery modal viewer</title>
-    <meta name="description"
-          content="A lightweight CSS3 image gallery that is pretty to look and and easy to use">
-    <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="../photohandling/assets/styles.css">
     <link rel="stylesheet" href="../photohandling/assets/photobox.css">
@@ -121,168 +117,170 @@
 .col-md-2 {
   top: 34px; position: relative; margin-left: 30px;
 }
-
+div#wrap {
+  background-color: aqua;
+  margin: 2rem;
+}
     
   </style>
   <div class="photo-gallery">
     <div class="page-wrapper bg-dark p-t-100 p-b-50"
-         style="background: #0202021a !important; padding-bottom: 85px;">
+         style="background: #0202021a !important;
+                padding-bottom: 85px;">
       <div class="wrapper wrapper--w900">
-  
-       
         <div id="wrap">
-          
           <div class="main">
-             <div class="col-md-2">
-             
+            <div class="col-md-2">
               <a href="{% url 'photo-view' %}" class="site-btn sb-line"><i class="fa fa-arrow-left"></i>Back to album</a>
-             </div>
-            {% for photo in photo_list %}
+           
+              {% for photo in photo_list %}
               <h1>JOSEPH ALBUM</h1>
               <h2>{{ photo.photo_date | date:"M, Y" }}</h2>
               <p>
-                A lightweight image gallery modal window script which uses only CSS3 for silky-smooth animations and transitions,
-                utilizes GPU rending, which can be completely controlled and themed directly from the CSS.
+                >A lightweight image gallery modal window script which
+                > uses only CSS3 for silky-smooth animations and transitions,
+                >utilizes GPU rending, which can be completely controlled
+                > and themed directly from the CSS.
               </p>
             </div>
-            <div style="position: relative;  left: 129px;">
-            <ul id="gallery">
-             
-              <li class="loaded">
-                <a href="{{ photo.photo_1.url }}">
-                  <img src="{{ photo.photo_1.url }}" title="Resolute">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_3.url }}">
-                  <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_4.url }}">
-                  <img src="{{ photo.photo_4.url }}" title="The Black Adder">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_5.url }}">
-                  <img src="{{ photo.photo_5.url }}" title="Life">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_6.url }}">
-                  <img src="{{ photo.photo_6.url }}" title="Let's dance">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_7.url }}">
-                  <img src="{{ photo.photo_7.url }}" title="Zaragoza">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_8.url }}">
-                  <img src="{{ photo.photo_8.url }}" title="Sundown at Badwater Basin">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_9.url }}">
-                  <img src="{{ photo.photo_9.url }}" title="Fio fio !!!!!">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_10.url }}">
-                  <img src="{{ photo.photo_10.url }}" title="Tiny Beauty">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_1.url }}">
-                  <img src="{{ photo.photo_1.url }}" title="Resolute">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_3.url }}">
-                  <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_4.url }}">
-                  <img src="{{ photo.photo_4.url }}" title="The Black Adder">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_5.url }}">
-                  <img src="{{ photo.photo_5.url }}" title="Life">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_6.url }}">
-                  <img src="{{ photo.photo_6.url }}" title="Let's dance">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_1.url }}">
-                  <img src="{{ photo.photo_1.url }}" title="Resolute">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_3.url }}">
-                  <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_4.url }}">
-                  <img src="{{ photo.photo_4.url }}" title="The Black Adder">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_5.url }}">
-                  <img src="{{ photo.photo_5.url }}" title="Life">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_6.url }}">
-                  <img src="{{ photo.photo_6.url }}" title="Let's dance">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_1.url }}">
-                  <img src="{{ photo.photo_1.url }}" title="Resolute">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_3.url }}">
-                  <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_4.url }}">
-                  <img src="{{ photo.photo_4.url }}" title="The Black Adder">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_5.url }}">
-                  <img src="{{ photo.photo_5.url }}" title="Life">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="{{ photo.photo_6.url }}">
-                  <img src="{{ photo.photo_6.url }}" title="Let's dance">
-                </a>
-              </li>
-              <li class="loaded">
-                <a href="https://www.facebook.com/embed/plugins/video.php?href="
-                   https
-                   www.facebook.com
-                   100064406813387
-                   videos
-                   pcb.533691025454453
-                   2391530174330594
-                   rel="video">
-                  <img src="https://www.youtube.com/watch?v=LRmrlqA9SM0.jpg"
-                       title="The Long Journey through the Desert">
-                </a>
-              </li>
-            </ul>
           </div>
+            <div style="position: relative;  left: 129px;">
+              <ul id="gallery">
+                <li class="loaded">
+                  <a href="{{ photo.photo_1.url }}">
+                    <img src="{{ photo.photo_1.url }}" title="Resolute">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_3.url }}">
+                    <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_4.url }}">
+                    <img src="{{ photo.photo_4.url }}" title="The Black Adder">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_5.url }}">
+                    <img src="{{ photo.photo_5.url }}" title="Life">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_6.url }}">
+                    <img src="{{ photo.photo_6.url }}" title="Let's dance">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_7.url }}">
+                    <img src="{{ photo.photo_7.url }}" title="Zaragoza">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_8.url }}">
+                    <img src="{{ photo.photo_8.url }}" title="Sundown at Badwater Basin">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_9.url }}">
+                    <img src="{{ photo.photo_9.url }}" title="Fio fio !!!!!">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_10.url }}">
+                    <img src="{{ photo.photo_10.url }}" title="Tiny Beauty">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_1.url }}">
+                    <img src="{{ photo.photo_1.url }}" title="Resolute">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_3.url }}">
+                    <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_4.url }}">
+                    <img src="{{ photo.photo_4.url }}" title="The Black Adder">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_5.url }}">
+                    <img src="{{ photo.photo_5.url }}" title="Life">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_6.url }}">
+                    <img src="{{ photo.photo_6.url }}" title="Let's dance">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_1.url }}">
+                    <img src="{{ photo.photo_1.url }}" title="Resolute">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_3.url }}">
+                    <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_4.url }}">
+                    <img src="{{ photo.photo_4.url }}" title="The Black Adder">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_5.url }}">
+                    <img src="{{ photo.photo_5.url }}" title="Life">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_6.url }}">
+                    <img src="{{ photo.photo_6.url }}" title="Let's dance">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_1.url }}">
+                    <img src="{{ photo.photo_1.url }}" title="Resolute">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_3.url }}">
+                    <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_4.url }}">
+                    <img src="{{ photo.photo_4.url }}" title="The Black Adder">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_5.url }}">
+                    <img src="{{ photo.photo_5.url }}" title="Life">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="{{ photo.photo_6.url }}">
+                    <img src="{{ photo.photo_6.url }}" title="Let's dance">
+                  </a>
+                </li>
+                <li class="loaded">
+                  <a href="https://www.facebook.com/embed/plugins/video.php?href="
+                     https
+                     www.facebook.com
+                     100064406813387
+                     videos
+                     pcb.533691025454453
+                     2391530174330594
+                     rel="video">
+                    <img src="https://www.youtube.com/watch?v=LRmrlqA9SM0.jpg"
+                         title="The Long Journey through the Desert">
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         {% endfor %}
       </div>
