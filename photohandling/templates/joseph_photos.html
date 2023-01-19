@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+{% block title %}Joseph{% endblock %}
+{% block content %}
+  <style></style>
+  <head>
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <meta charset="utf-8">
+    <title>Photobox - CSS3 image gallery modal viewer</title>
+    <meta name="description"
+          content="A lightweight CSS3 image gallery that is pretty to look and and easy to use">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="../photohandling/assets/styles.css">
+    <link rel="stylesheet" href="../photohandling/assets/photobox.css">
+    <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js" integrity="sha512-suUtSPkqYmFd5Ls30Nz6bjDX+TCcfEzhFfqjijfdggsaFZoylvTj+2odBzshs0TCwYrYZhQeCgHgJEkncb2YVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="../photohandling/assets/jquery.photobox.js"></script>
+  </head>
+  <style>
+    {% comment %} .photo-gallery {
+      color:#313437;
+      background-color:#fff;
+    }
+    
+    .photo-gallery p {
+      color:#7d8285;
+    }
+    
+    .photo-gallery h2 {
+      font-weight:bold;
+      margin-bottom:40px;
+      padding-top:40px;
+      color:inherit;
+    }
+    
+    @media (max-width:767px) {
+      .photo-gallery h2 {
+        margin-bottom:25px;
+        padding-top:25px;
+        font-size:24px;
+      }
+    }
+    
+    .photo-gallery .intro {
+      font-size:16px;
+      max-width:500px;
+      margin:0 auto 40px;
+    }
+    
+    .photo-gallery .intro p {
+      margin-bottom:0;
+    }
+    
+    .photo-gallery .photos {
+      padding-bottom:20px;
+    }
+    
+    .photo-gallery .item {
+      padding-bottom:30px;
+    } {% endcomment %}
+    #gallery {
+      float: left !important;
+      width: 80% !important;
+    }  
+    .main {
+      float: left;
+      font-size: 1.1em;
+       width: 100%; 
+      color: #FFF;
+      text-shadow: 2px 2px 4px rgb(0 0 0 / 6%);
+      font-family: 'Cuprum';
+      text-align: center;
+  }
+    .main h1 {
+      line-height: 0.75;
+      font-size: 6.2em;
+      margin: 0;
+      text-indent: 1%;
+      font-family: 'Open Sans';
+      color: #ed1c24;
+  }
+
+  .main h2 {
+    font-size: 2.7em;
+    color: #FF1668;
+    line-height: 1.2;
+    margin: 0;
+    margin-left: 26px;
+    font-family: 'Open Sans';
+}
+
+.site-btn.sb-line {
+  background-color: transparent;
+  border: 2px solid #dd3e3e;
+  color: #dc3545;
+  letter-spacing: 2px;
+}
+.site-btn {
+  padding: 12px 20px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 25px;
+  background: #dd3e3e;
+  letter-spacing: 1px;
+  /* text-align: right; */
+  float: right;
+}
+
+@media (max-width:767px) {
+  .col-md-2 {
+    top:5px;
+    padding-bottom:25px;
+    float:right;
+  }
+}
+.col-md-2 {
+  top: 34px; position: relative; margin-left: 30px;
+}
+
+    
+  </style>
+  <div class="photo-gallery">
+    <div class="page-wrapper bg-dark p-t-100 p-b-50"
+         style="background: #0202021a !important; padding-bottom: 85px;">
+      <div class="wrapper wrapper--w900">
+  
+       
+        <div id="wrap">
+          
+          <div class="main">
+             <div class="col-md-2">
+             
+              <a href="{% url 'photo-view' %}" class="site-btn sb-line"><i class="fa fa-arrow-left"></i>Back to album</a>
+             </div>
+            {% for photo in photo_list %}
+              <h1>JOSEPH ALBUM</h1>
+              <h2>{{ photo.photo_date | date:"M, Y" }}</h2>
+              <p>
+                A lightweight image gallery modal window script which uses only CSS3 for silky-smooth animations and transitions,
+                utilizes GPU rending, which can be completely controlled and themed directly from the CSS.
+              </p>
+            </div>
+            <div style="position: relative;  left: 129px;">
+            <ul id="gallery">
+             
+              <li class="loaded">
+                <a href="{{ photo.photo_1.url }}">
+                  <img src="{{ photo.photo_1.url }}" title="Resolute">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_3.url }}">
+                  <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_4.url }}">
+                  <img src="{{ photo.photo_4.url }}" title="The Black Adder">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_5.url }}">
+                  <img src="{{ photo.photo_5.url }}" title="Life">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_6.url }}">
+                  <img src="{{ photo.photo_6.url }}" title="Let's dance">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_7.url }}">
+                  <img src="{{ photo.photo_7.url }}" title="Zaragoza">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_8.url }}">
+                  <img src="{{ photo.photo_8.url }}" title="Sundown at Badwater Basin">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_9.url }}">
+                  <img src="{{ photo.photo_9.url }}" title="Fio fio !!!!!">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_10.url }}">
+                  <img src="{{ photo.photo_10.url }}" title="Tiny Beauty">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_1.url }}">
+                  <img src="{{ photo.photo_1.url }}" title="Resolute">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_3.url }}">
+                  <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_4.url }}">
+                  <img src="{{ photo.photo_4.url }}" title="The Black Adder">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_5.url }}">
+                  <img src="{{ photo.photo_5.url }}" title="Life">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_6.url }}">
+                  <img src="{{ photo.photo_6.url }}" title="Let's dance">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_1.url }}">
+                  <img src="{{ photo.photo_1.url }}" title="Resolute">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_3.url }}">
+                  <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_4.url }}">
+                  <img src="{{ photo.photo_4.url }}" title="The Black Adder">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_5.url }}">
+                  <img src="{{ photo.photo_5.url }}" title="Life">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_6.url }}">
+                  <img src="{{ photo.photo_6.url }}" title="Let's dance">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_1.url }}">
+                  <img src="{{ photo.photo_1.url }}" title="Resolute">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_3.url }}">
+                  <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_4.url }}">
+                  <img src="{{ photo.photo_4.url }}" title="The Black Adder">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_5.url }}">
+                  <img src="{{ photo.photo_5.url }}" title="Life">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="{{ photo.photo_6.url }}">
+                  <img src="{{ photo.photo_6.url }}" title="Let's dance">
+                </a>
+              </li>
+              <li class="loaded">
+                <a href="https://www.facebook.com/embed/plugins/video.php?href="
+                   https
+                   www.facebook.com
+                   100064406813387
+                   videos
+                   pcb.533691025454453
+                   2391530174330594
+                   rel="video">
+                  <img src="https://www.youtube.com/watch?v=LRmrlqA9SM0.jpg"
+                       title="The Long Journey through the Desert">
+                </a>
+              </li>
+            </ul>
+          </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <script>
+	$(document).ready(function () {
+    $('#gallery').photobox('a', { thumbs:true, loop:false }, callback);
+        // using setTimeout to make sure all images were in the DOM, before the history.load() function is looking them up to match the url hash
+        setTimeout(window._photobox.history.load, 2000);
+        function callback(){
+          console.log('callback for loaded content:', this);
+        };
+      });
+  </script>
+{% endblock content %}
