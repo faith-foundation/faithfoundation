@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 # Create your models here.
 
 event_choices = (
@@ -55,33 +56,21 @@ class LandingEvent(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('events:event-view',kwargs={'pk':self.pk})
+    
+
 class Contact(models.Model):
     subject = models.CharField('Subject', max_length=70)
     mobile_number = models.CharField('Mobile Number', max_length=10, primary_key=True)
     message = models.TextField('Message', max_length=500)
 
-class PhotoAlbum(models.Model):
-    album_name = models.CharField(max_length=150)
-    album_date = models.DateTimeField()
-    photo_1 = models.ImageField(upload_to='uploads/')
-    photo_2 = models.ImageField(upload_to='uploads/')
-    photo_3 = models.ImageField(upload_to='uploads/')
-    photo_4 = models.ImageField(upload_to='uploads/')
-    photo_5 = models.ImageField(upload_to='uploads/')
-    photo_6 = models.ImageField(upload_to='uploads/')
-    photo_7 = models.ImageField(upload_to='uploads/')
-    photo_8 = models.ImageField(upload_to='uploads/')
-    photo_9 = models.ImageField(upload_to='uploads/')
-    photo_10 = models.ImageField(upload_to='uploads/')
-
-    def __str__(self):
-        return self.album_name
-
 class EventForm(models.Model):
     first_name = models.CharField(max_length=150,default=None)
     last_name = models.CharField(max_length=150,default=None)
-    event = models.CharField(max_length=100, choices=event_choices, default=None)
+    event_type = models.CharField(max_length=100, choices=event_choices, default=None)
     count_of_family = models.CharField(max_length=10, choices=family_count, default=None)
 
     def __str__(self):
         return self.first_name
+

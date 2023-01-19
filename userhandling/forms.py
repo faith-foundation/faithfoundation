@@ -26,7 +26,6 @@ class RegisterUserForm(UserCreationForm):
     language_of_choice = forms.CharField(widget=forms.Select(choices=language_choices))
     address = forms.CharField(widget=forms.Textarea)
 
-
     class Meta:
         model = User
         fields = ('username','first_name', 'last_name', 'email', 'mobile_number','date_of_birth', 'password1', 'password2')

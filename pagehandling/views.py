@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import Event, LandingEvent, Banner, PhotoAlbum
+from .models import Event, LandingEvent, Banner
 from .forms import contact_form, event_registration_form
 from django.contrib.auth.decorators import login_required
 
@@ -15,31 +15,28 @@ def home(request):
 
 
 def photos(request):
-    return render(request, 'photos.html')
+    landing_event = LandingEvent.objects.all()
+    return render(request, 'photos.html', {'landing_event': landing_event})
 
 
 def about(request):
-    return render(request, 'about.html')
+    landing_event = LandingEvent.objects.all()
+    return render(request, 'about.html',{'landing_event': landing_event})
 
 
 def event_view(request):
     banner_list = Banner.objects.all()
     event_list = Event.objects.all()
     landing_event = LandingEvent.objects.all()
-    return render(request, 'event-view.html', {'event_list': event_list,'banner_list': banner_list,'landing_event': landing_event,})
+    return render(request, 'event-view.html', {'event_list': event_list,'banner_list': banner_list,'landing_event': landing_event})
 
 def event_Reg(request):
     banner_list = Banner.objects.all()
     event_list = Event.objects.all()
     return render(request, 'event_registration.html', {'event_list': event_list,'banner_list': banner_list,})
 
-
-def photo_album_view(request):
-    album_list = PhotoAlbum.objects.all()
-    return render(request, 'photo_album_view.html', {'album_list': album_list})
-
-
 def contact(request):
+    landing_event = LandingEvent.objects.all()
     context = {}
     form = contact_form(request.POST or None, request.FILES or None)
     if form.is_valid():
@@ -47,11 +44,12 @@ def contact(request):
         form.save()
 
     context['form'] = form
-    return render(request, 'contact.html', context)
+    return render(request, 'contact.html',{'context':context,'landing_event': landing_event})
 
 
 @login_required(login_url='login')  # redirect when user is not logged in
 def event_form(request):
+    landing_event = LandingEvent.objects.all()
     context = {}
     form = event_registration_form(request.POST or None, request.FILES or None)
     if form.is_valid():
@@ -59,4 +57,4 @@ def event_form(request):
         form.save()
 
     context['form'] = form
-    return render(request, 'event_registration.html', context)
+    return render(request, 'event_registration.html',{'landing_event': landing_event ,'context': context })

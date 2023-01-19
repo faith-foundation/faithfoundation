@@ -32,6 +32,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Application definition
 
 INSTALLED_APPS = [
+    'photohandling',
     'crispy_forms',
     'jazzmin',
     'pagehandling',
@@ -83,9 +84,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': 'C62Xwur3VqHPkaTDVZ1S',
-        'HOST': 'containers-us-west-147.railway.app',   # Or an IP Address that your DB is hosted on
-        'PORT': '6525',
+        'PASSWORD': 'Oi2ROKyI4c9j35DPtJxs',
+        'HOST': 'containers-us-west-135.railway.app',   # Or an IP Address that your DB is hosted on
+        'PORT': '6007',
     }
 }
 
@@ -127,8 +128,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [ BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+X_FRAME_OPTIONS = 'ALLOWALL'
+
+XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']

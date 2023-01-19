@@ -1,7 +1,74 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Events{% endblock %}
+
+{% block script %}
+<script src={% static 'main.js'%} defer></script>
+
+{% endblock %}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js" integrity="sha512-suUtSPkqYmFd5Ls30Nz6bjDX+TCcfEzhFfqjijfdggsaFZoylvTj+2odBzshs0TCwYrYZhQeCgHgJEkncb2YVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {% block content %}
+<style>
+  .counter-item1 {
+    padding: 15px 25px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #fff;
+    border-right: 1px solid #e05252;
+    text-align: center;
+    display: inline-block;
+}
+.counter1{
+  display: flex;
+  margin: 0 20px;
+}
+
+#hd,#hh,#hm,#hs{
+  color: white;
+}    
+
+.site-btn {
+  margin-left: 28px;
+  padding: 25px 29px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 2px;
+  background: #dd3e3e;
+  letter-spacing: 1px;
+  text-align: center;
+  height: 38px;
+  /* padding-bottom: 32px; */
+}
+
+.site-btn.sb-light-line {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  /* letter-spacing: 2px; */
+  /* padding: 22px; */
+  padding: 6px;
+  /* margin-top: 20px; */
+  float: right;
+  margin-right: 13rem;
+  width: 132px;
+  top: -3rem;
+}
+.event-section .site-btn {
+  position: relative;
+
+}
+
+.event-section {
+  background: #dd3e3e;
+  padding: 14px 0;
+}
+</style>
   {% for event in banner_list %}
     <section class="page-info-section set-bg"
              data-setbg="{{ event.banner_image.url }}">
@@ -22,9 +89,11 @@
     <section class="event-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-5 col-lg-6">
+          <div class="col-md-5 col-lg-5 col-sm-12">
             <div class="event-info">
-              <div class="event-date">
+              <div class="event-date" id="">
+                <label id="event-date" style="display:none"> {{ landing.date| date:"M d, Y H:m:s" }}</label>
+          
                 <h2>{{ landing.date | date:"d" }}</h2>
                 {{ landing.date | date:"M" }}
               </div>
@@ -34,22 +103,24 @@
               </p>
             </div>
           </div>
-          <div class="col-md-7 col-lg-6">
-            <div class="counter">
-              <div class="counter-item">
-                <h4>10</h4>
+         
+          <div class="col-md-7 col-lg-7 col-sm-12">
+           
+            <div class="counter1"> 
+              <div class="counter-item1">
+                <h4 ID="hd"></h4>
                 Days
               </div>
-              <div class="counter-item">
-                <h4>08</h4>
+              <div  class="counter-item1">
+                <h4 id="hh"> </h4>
                 hours
               </div>
-              <div class="counter-item">
-                <h4>40</h4>
+              <div class="counter-item1">
+                <h4 id="hm"></h4>
                 Mins
               </div>
-              <div class="counter-item">
-                <h4>56</h4>
+              <div class="counter-item1">
+                <h4 id="hs"></h4>
                 secs
               </div>
             </div>
@@ -76,6 +147,7 @@
               <div class="el-content">
                 <div class="el-header">
                   <div class="el-date">
+                 
                     <h2>{{ event.event_date | date:"d" }}</h2>
                     {{ event.event_date | date:"M" }}
                   </div>
@@ -106,28 +178,44 @@
     </div>
   </section>
  
+  <script>
+ 
+    const eventBox = document.getElementById('event-date')
+    console.log(eventBox.textContent)
+    const eventDate = Date.parse(eventBox.textContent)
+     
+    
+    setInterval(()=>{
+        const now = new Date().getTime()
+         
+        const diff = eventDate - now
+       
+    
+        const d = Math.floor(eventDate / (1000 * 60 * 60 * 24) - (now / (1000 * 60 * 60 * 24)))
+   
+        const h = Math.floor((eventDate / (1000 * 60 * 60) - (now / (1000 * 60 * 60))) % 24)
+        console.log(h)
+        const m = Math.floor((eventDate / (1000 * 60) - (now / (1000 * 60))) % 60)
+   
+       const s = Math.floor((eventDate / (1000) - (now / (1000))) % 60)
+      
+    
+       if (diff>0){
+    
+        document.getElementById('hd').innerHTML = d
+        document.getElementById('hh').innerHTML = h
+        document.getElementById('hm').innerHTML = m
+        document.getElementById('hs').innerHTML = s
+
+    }
+    else
+    {
+       
+    }
+    }, 1000)
+  </script>
 
 
-  {% comment %} {% for event in event_list %}
-    <div class="container">
-      <div class="card container" style="width: 18rem;">
-        <img src="{{ event.event_image.url }}" class="card-img-top" alt="No-IMG">
-        <div class="card-body">
-          <h5 class="card-title">
-            {{ event.name }}
-          </h5>
-          <p>
-            Location: <b>{{ event.venue }}</b>
-          </p>
-          <p>
-            When: <b>{{ event.event_date | date:"M d, Y" }}</b>
-          </p>
-          <p class="card-text">
-            {{ event.description }}
-          </p>
-          <a href="{% url 'event-registration' %}" class="btn btn-primary">Register</a>
-        </div>
-      </div>
-    </div>
-  {% endfor %} {% endcomment %}
 {% endblock content %}
+
+

@@ -5,28 +5,17 @@
 <style>
     .registerpage{
     border: 1px solid black;
-    width: 500px;
     padding: 50px;
     }
 
-    label{
-    float: left;
-    }
-
     input{
-    float: right;
     width: 200px;
-    }
-
-    select{
-    float: right;
     }
 
     #id_address{
     resize: none;
     height: 70px;
     width: 200px;
-    float:right;
     }
 
     #id_gender, #id_language_of_choice{
@@ -43,65 +32,64 @@
     {% endif %}
             
 
-    <div class="registerpage container">
+    <div class="registerpage container ">
     <form action="{% url 'register' %}" method="post">
             {% csrf_token %}
 
-            <label>Create a Username</label>
             {{ form.username }}
 
             <br><br>
 
-            <label>First Name</label>
+
             {{ form.first_name }}
 
             <br><br>
 
-            <label>Last Name</label>
+
             {{ form.last_name }}
 
             <br><br>
 
-            <label>Date of birth</label>
+
             {{ form.date_of_birth }}
 
             <br><br>
 
-            <label>Gender</label>
+
             {{ form.gender }}
 
             <br><br>
 
-            <label>Language of Choice</label>
+
             {{ form.language_of_choice }}
 
             <br><br>
 
-            <label>Address</label>
+
             {{ form.address }}
 
-            <br><br><br><br>
+            <br><br>
 
-            <label >Email</label>
+
             {{ form.email }}
 
             <br><br>
 
-            <label >Mobile Number</label>
+
             {{ form.mobile_number }}
 
             <br><br>
 
-            <label>Create a Password</label>
+
             {{ form.password1 }}
 
             <br><br>
 
-            <label>Re-enter your Password</label>
+
             {{ form.password2 }}
 
             <br><br>
-        <input type="submit" value="Sign up" class="btn btn-primary">
+        <input type="submit" value="Register" class="btn btn-success">
         </form>
     </div>
 
