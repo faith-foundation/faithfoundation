@@ -5,6 +5,7 @@
   <head>
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="../photohandling/assets/styles.css">
     <link rel="stylesheet" href="../photohandling/assets/photobox.css">
@@ -14,58 +15,14 @@
     <script type="text/javascript" src="../photohandling/assets/jquery.photobox.js"></script>
   </head>
   <style>
-    {% comment %} .photo-gallery {
-      color:#313437;
-      background-color:#fff;
-    }
-    
-    .photo-gallery p {
-      color:#7d8285;
-    }
-    
-    .photo-gallery h2 {
-      font-weight:bold;
-      margin-bottom:40px;
-      padding-top:40px;
-      color:inherit;
-    }
-    
-    @media (max-width:767px) {
-      .photo-gallery h2 {
-        margin-bottom:25px;
-        padding-top:25px;
-        font-size:24px;
-      }
-    }
-    
-    .photo-gallery .intro {
-      font-size:16px;
-      max-width:500px;
-      margin:0 auto 40px;
-    }
-    
-    .photo-gallery .intro p {
-      margin-bottom:0;
-    }
-    
-    .photo-gallery .photos {
-      padding-bottom:20px;
-    }
-    
-    .photo-gallery .item {
-      padding-bottom:30px;
-    } {% endcomment %}
-    #gallery {
-      float: left !important;
-      width: 80% !important;
-    }  
+
     .main {
       float: left;
       font-size: 1.1em;
        width: 100%; 
       color: #FFF;
       text-shadow: 2px 2px 4px rgb(0 0 0 / 6%);
-      font-family: 'Cuprum';
+      font-family: 'Open Sans';
       text-align: center;
   }
     .main h1 {
@@ -104,7 +61,7 @@
   background: #dd3e3e;
   letter-spacing: 1px;
   /* text-align: right; */
-  float: right;
+ 
 }
 
 @media (max-width:767px) {
@@ -121,6 +78,15 @@ div#wrap {
   background-color: aqua;
   margin: 2rem;
 }
+
+@media (min-width: 576px)
+.col-sm-12  {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+
+ 
     
   </style>
   <div class="photo-gallery">
@@ -128,10 +94,10 @@ div#wrap {
          style="background: #0202021a !important;
                 padding-bottom: 85px;">
       <div class="wrapper wrapper--w900">
-        <div id="wrap">
-          <div class="main">
-            <div class="col-md-2">
-              <a href="{% url 'photo-view' %}" class="site-btn sb-line"><i class="fa fa-arrow-left"></i>Back to album</a>
+        <div class="row" id="wrap">
+        
+            <div class="col-md-4 col-lg-4 col-sm-12" >
+              <a href="{% url 'photo-view' %}" class=""><i class="fa fa-arrow-left"></i>Back to album</a>
            
               {% for photo in photo_list %}
               <h1>JOSEPH ALBUM</h1>
@@ -143,8 +109,13 @@ div#wrap {
                 > and themed directly from the CSS.
               </p>
             </div>
-          </div>
-            <div style="position: relative;  left: 129px;">
+
+
+
+
+            
+         
+            <div class="col-md-8 col-lg-8 col-sm-12" style="position: relative;">
               <ul id="gallery">
                 <li class="loaded">
                   <a href="{{ photo.photo_1.url }}">
@@ -191,81 +162,7 @@ div#wrap {
                     <img src="{{ photo.photo_10.url }}" title="Tiny Beauty">
                   </a>
                 </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_1.url }}">
-                    <img src="{{ photo.photo_1.url }}" title="Resolute">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_3.url }}">
-                    <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_4.url }}">
-                    <img src="{{ photo.photo_4.url }}" title="The Black Adder">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_5.url }}">
-                    <img src="{{ photo.photo_5.url }}" title="Life">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_6.url }}">
-                    <img src="{{ photo.photo_6.url }}" title="Let's dance">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_1.url }}">
-                    <img src="{{ photo.photo_1.url }}" title="Resolute">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_3.url }}">
-                    <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_4.url }}">
-                    <img src="{{ photo.photo_4.url }}" title="The Black Adder">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_5.url }}">
-                    <img src="{{ photo.photo_5.url }}" title="Life">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_6.url }}">
-                    <img src="{{ photo.photo_6.url }}" title="Let's dance">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_1.url }}">
-                    <img src="{{ photo.photo_1.url }}" title="Resolute">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_3.url }}">
-                    <img src="{{ photo.photo_3.url }}" title="Dolomite Alps in Autumn">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_4.url }}">
-                    <img src="{{ photo.photo_4.url }}" title="The Black Adder">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_5.url }}">
-                    <img src="{{ photo.photo_5.url }}" title="Life">
-                  </a>
-                </li>
-                <li class="loaded">
-                  <a href="{{ photo.photo_6.url }}">
-                    <img src="{{ photo.photo_6.url }}" title="Let's dance">
-                  </a>
-                </li>
+              
                 <li class="loaded">
                   <a href="https://www.facebook.com/embed/plugins/video.php?href="
                      https
