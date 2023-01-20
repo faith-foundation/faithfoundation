@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'jazzmin',
     'pagehandling',
     'userhandling',
+    'general_tools_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -69,6 +70,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+             'libraries':{
+            'add_class': 'general_tools_app.templatetags.add_class',
+            
+            }
         },
     },
 ]
